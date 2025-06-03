@@ -1,0 +1,18 @@
+<resources>
+    <!-- Другие строки -->
+    <string name="app_name">RouteTrack</string>
+
+    <!-- Массив вариантов для Spinner -->
+    <string-array name="payment_options">
+        <item>Отказ-возврат</item>
+        <item>Расчет наличными полный</item>
+        <item>Расчет наличными (частичный отказ)</item>
+        <item>Расчет наличными со скидкой</item>
+        <item>Расчет каспий полный</item>
+        <item>Расчет каспий частичный</item>
+        <item>Расчет каспий со скидкой</item>
+        <item>Перенос заказа на другую дату</item>
+        <item>Консигнация, заказ сдан</item>
+        <item>Оставил без расчета, под ответственность</item>
+    </string-array>
+</resources>

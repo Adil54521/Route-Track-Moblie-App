@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <!-- Текст по центру экрана -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:text="Введите данные для входа"
+        android:textSize="24sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+      />
+
+    <!-- Поле для ввода логина -->
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:hint="Логин"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:inputType="text" />
+
+    <!-- Поле для ввода пароля -->
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:hint="Пароль"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:inputType="textPassword" />
+
+    <!-- Кнопка "Войти" -->
+    <Button
+        android:id="@+id/buttonCheckPassword"
+        android:text="Войти"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+         />
+
+</LinearLayout>
