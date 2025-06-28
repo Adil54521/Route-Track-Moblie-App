@@ -1,5 +1,114 @@
 # 📦 RouteTrack
 
+**RouteTrack** is an Android application for scanning and processing delivery invoices with the ability to send data to a server in XML format. The app allows you to:
+
+- Authenticate using a branch key
+- Scan invoice QR codes
+- Store and filter results by date and invoice number
+- Add discounts and delivery amounts
+- Upload results to an HTTP server
+- Simulate scans when running on an emulator
+
+## 🚀 Features
+
+- 📷 QR code scanning via ML Kit / ZXing
+- 💾 Local storage of invoices in JSON format
+- 📅 Filtering invoices by date
+- 🔍 Search by invoice number
+- 🧾 XML file generation from scanned results
+- ☁️ HTTP POST upload of XML file
+- 🎨 User-friendly UI with highlighting and spinners
+- 📱 Emulator support (QR code simulation)
+- 🧠 Error handling and user feedback
+- 🔐 Auth data persistence via SharedPreferences
+
+## 📂 Project Structure
+
+```
+com.example.routetrack/
+├── MainActivity.kt              # Branch key login screen
+├── WorkActivity.kt              # Main scanning and upload screen
+├── ScanResultsAdapter.kt        # RecyclerView adapter for invoices
+├── RetrofitClient.kt            # Retrofit class for API auth
+├── activity_login.xml           # Login layout
+├── activity_work.xml            # Work screen layout
+├── item_scan_result.xml         # Invoice item layout
+├── DatePickerFragment.kt        # Optional: date picker dialog
+```
+
+## 🛠️ Requirements
+
+- Android Studio Hedgehog or newer
+- minSdkVersion: 24
+- compileSdkVersion: 33+
+- Dependencies:
+  - Retrofit2
+  - OkHttp
+  - ML Kit Barcode Scanning
+  - ZXing (JourneyApps)
+  - Gson
+  - Kotlin Coroutines
+  - AndroidX libraries
+
+## 🧪 Sample QR Code Format
+
+```
+N-123456&amount=1500
+```
+
+- `123456` — Invoice number
+- `1500` — Invoice amount
+
+## 🔐 Authentication
+
+The app starts with a branch key login. After successful authentication, FTP connection data (host, login, password) is passed to `UnifiedLoginActivity` and can be used for syncing or uploads.
+
+## 🌐 Uploading Data to Server
+
+Scanned results are sent as XML via HTTP POST:
+
+```
+POST http://<your-server>/upload_scan_results
+Content-Type: application/xml
+Authorization: Basic <base64(login:password)>
+```
+
+## 🧪 Emulator Support
+
+The emulator-friendly mode lets you simulate scans using a static QR code:
+
+- Loads `qr.png` from resources on emulators
+- Parses it as a real QR code
+
+## 💾 Data Storage
+
+Scanned data is saved to:
+
+```
+scan_results_<hash(profile)>.json
+```
+
+and reloaded automatically on app startup.
+
+## 📸 Screenshots
+
+_(Add images of login screen, invoice list, scanning and upload screens)_
+
+## 📌 Notes
+
+- Adapter supports editing, payment selection, and invoice deletion
+- Filtering and search features included
+- Delivered invoices are visually highlighted
+- SharedPreferences store user settings and profiles
+
+## 🧑‍💻 Author
+
+- Author: Adilkhan Shukraliyev
+- Email: adilkhan.shukraliyev@gmail.com
+
+==============================================================================================================================================================
+# 📦 RouteTrack
+
 **RouteTrack** — это Android-приложение для сканирования и обработки товарных накладных с возможностью отправки данных на сервер в формате XML. Приложение позволяет:
 
 - Авторизоваться по ключу филиала
@@ -105,9 +214,7 @@ _(Добавьте изображения экрана логина, списк�
 
 ## 🧑‍💻 Автор
 
-- Автор: [ваше имя или ник]
-- Email: [ваш email или контакт]
+- Автор: Адильхан Шукралиев
+- Email: adilkhan.shukraliyev@gmail.com
 
-## 📜 Лицензия
 
-MIT License — свободно используйте и модифицируйте под ваши нужды.
